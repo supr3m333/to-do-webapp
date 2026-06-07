@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taskr — Stay on track</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <header class="app-header">
+      <div class="header-top">
+        <div class="logo-area">
+          <span class="logo-mark">✦</span>
+          <h1 class="app-title">Taskr</h1>
+        </div>
+        <div class="date-display" id="dateDisplay"></div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-label">
+          <span id="completedCount">0</span> of <span id="totalCount">0</span> done
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-main">
+
+      <div class="input-section">
+        <div class="input-row">
+          <input
+            type="text"
+            id="taskInput"
+            class="task-input"
+            placeholder="What needs doing?"
+            maxlength="120"
+            autocomplete="off"
+          />
+          <select id="prioritySelect" class="priority-select">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+          <button id="addBtn" class="add-btn" aria-label="Add task">
+            <span>Add</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filters-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Done</button>
+        <button class="filter-btn priority-filter" data-filter="high">⬆ High</button>
+      </div>
+
+      <ul class="task-list" id="taskList" role="list">
+        <!-- tasks injected here -->
+      </ul>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span class="empty-icon">◌</span>
+        <p>Nothing here. Add a task above.</p>
+      </div>
+
+      <div class="list-footer" id="listFooter" hidden>
+        <span id="remainingLabel"></span>
+        <button id="clearDoneBtn" class="clear-btn">Clear completed</button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
